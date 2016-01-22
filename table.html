@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Table</title>
+  <style media="screen">
+    body {
+      font-size: 12px;
+    }
+
+    .table {
+      width: 100%;
+      border: 1px solid #dadada;
+    }
+
+    .tableTitle {
+      font-weight: bold;
+      background-color: #efefef;
+      padding: 15px;
+      border: 1px solid #dadada;
+    }
+
+    .tableBody {
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Fleetify reports</h1>
+  <table class="table">
+    <tr class="tableTitle">
+        {{ range $key, $item := index . 0 }}
+            <td>{{ $key }}</td>
+        {{ end }}
+    </tr>
+    {{ range $index, $value := . }}
+    <tr style="border:1px solid #dadada">
+      {{ range $key, $item := $value }}
+      <td class="tableBody">
+        {{ $item }}
+      </td>
+      {{ end }}
+    </tr>
+    {{ end }}
+  </table>
+</body>
+
+</html>
